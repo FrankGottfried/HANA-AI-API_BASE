@@ -1,0 +1,15 @@
+column table "EXECUTABLE" (
+    "ID" NVARCHAR(256) NOT NULL,
+    "NAME"  NVARCHAR(256) COMMENT 'name',
+    "DESCRIPTION"  NVARCHAR(1000) COMMENT 'description',
+    "SCENARIO_ID"  NVARCHAR(256) COMMENT 'scenario id',
+    "LABELS" NVARCHAR(1000) COMMENT 'labels',
+    "CREATED_AT" TIMESTAMP COMMENT 'created_at',
+    "MODIFIED_AT" TIMESTAMP COMMENT 'modified_at',
+    "DEPLOYABLE" TINYINT COMMENT 'deployable',
+    "PARAMETERS"  NVARCHAR(256) COMMENT 'parameters',
+    "INPUT_ARTIFACTS"  NVARCHAR(1000) COMMENT 'input artifacts',
+    "OUTPUT_ARTIFACTS"  NVARCHAR(1000) COMMENT 'output artifacts',
+    PRIMARY KEY ("ID") 
+)
+COMMENT 'ai api executable table'

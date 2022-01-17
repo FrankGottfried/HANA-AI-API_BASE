@@ -1,0 +1,8 @@
+column table "EXECUTION_STATUS" (
+    "ID" NVARCHAR(256) NOT NULL,
+    "STATUS"  NVARCHAR(256) COMMENT 'status',
+    "CREATED_AT" TIMESTAMP COMMENT 'created_at',
+    "MODIFIED_AT" TIMESTAMP COMMENT 'modified_at',
+    PRIMARY KEY ("ID") 
+)
+COMMENT 'ai api status table'

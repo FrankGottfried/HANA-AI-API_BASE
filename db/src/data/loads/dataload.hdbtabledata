@@ -1,0 +1,28 @@
+{
+    "format_version": 1,
+    "imports": [{
+	    "target_table": "SCENARIO",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "scenario.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	    },
+        {
+            "target_table": "EXECUTABLE",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "executable.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
+        }
+    ]
+}

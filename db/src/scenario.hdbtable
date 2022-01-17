@@ -1,0 +1,10 @@
+column table "SCENARIO" (
+    "ID" NVARCHAR(256) NOT NULL,
+    "NAME"  NVARCHAR(256) COMMENT 'name',
+    "DESCRIPTION"  NVARCHAR(1000) COMMENT 'description',
+    "LABELS" NVARCHAR(1000) COMMENT 'labels',
+    "CREATED_AT" TIMESTAMP COMMENT 'created_at',
+    "MODIFIED_AT" TIMESTAMP COMMENT 'modified_at',
+    PRIMARY KEY ("ID") 
+)
+COMMENT 'ai api scenario table'

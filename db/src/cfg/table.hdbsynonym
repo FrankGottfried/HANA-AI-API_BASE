@@ -1,0 +1,8 @@
+{
+    "AI_API.TENANT_SCHEMA_MAPPING": {
+      "target": {
+        "object": "TENANT_SCHEMA_MAPPING",
+        "schema": "AI_API"
+      }
+    }
+  }

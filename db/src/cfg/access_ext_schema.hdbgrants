@@ -1,0 +1,10 @@
+{
+    "CC_ACCESS": {
+      "object_owner" : {
+        "roles" : ["api_schema_access","data::external_access_g"] 
+      },
+      "application_user" : {
+        "roles" : ["api_schema_access", "data::external_access" ]
+      }
+    }
+  }
