@@ -1,0 +1,7 @@
+column table "DEPLOYMENTS" (
+    "ID" NVARCHAR(256) NOT NULL,
+    "CONS_TEMPLATE"  NVARCHAR(5000) COMMENT 'template',
+    "CREATED_AT" TIMESTAMP COMMENT 'created_at',
+    PRIMARY KEY ("ID") 
+)
+COMMENT 'ai api deployments table'

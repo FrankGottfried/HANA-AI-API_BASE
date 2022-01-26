@@ -1,0 +1,25 @@
+PROCEDURE BASE_UNIFIEDINTERFACE_CLASSIFIER_PREDICT (in lt_in_0_unifiedinterface_classifier1_predict table ("AccountID" INT,"ServiceType" NVARCHAR(30),"ServiceName" NVARCHAR(30),"DataAllowance_MB" INT,"VoiceAllowance_Minutes" INT,"SMSAllowance_N_Messages" INT,"DataUsage_PCT" DOUBLE,"DataUsage_PCT_PM" DOUBLE,"DataUsage_PCT_PPM" DOUBLE,"VoiceUsage_PCT" DOUBLE,"VoiceUsage_PCT_PM" DOUBLE,"VoiceUsage_PCT_PPM" DOUBLE,"SMSUsage_PCT" DOUBLE,"SMSUsage_PCT_PM" DOUBLE,"SMSUsage_PCT_PPM" DOUBLE,"Revenue_Month" DOUBLE,"Revenue_Month_PM" DOUBLE,"Revenue_Month_PPM" DOUBLE,"Revenue_Month_PPPM" DOUBLE,"ServiceFailureRate_PCT" DOUBLE,"ServiceFailureRate_PCT_PM" DOUBLE,"ServiceFailureRate_PCT_PPM" DOUBLE,"CustomerLifetimeValue_USD" DOUBLE,"CustomerLifetimeValue_USD_PM" DOUBLE,"CustomerLifetimeValue_USD_PPM" DOUBLE,"Device_Lifetime" DOUBLE,"Device_Lifetime_PM" DOUBLE,"Device_Lifetime_PPM" DOUBLE), 
+                                        in lt_model_in_1_unifiedinterface_predict table ("ROW_INDEX" INT,"PART_INDEX" INT,"MODEL_CONTENT" NCLOB),
+                                        out LT_PAL_UNIFIED_CLASSIF_PREDICT_RESULT_TBL table ("AccountID" INT,"SCORE" NVARCHAR(100),"CONFIDENCE" DOUBLE,  "REASON_CODE" NCLOB ))
+    LANGUAGE SQLSCRIPT
+    SQL SECURITY INVOKER
+    READS SQL DATA 
+    AS
+
+BEGIN
+DECLARE param_name VARCHAR(5000) ARRAY;
+DECLARE int_value INTEGER ARRAY;
+DECLARE double_value DOUBLE ARRAY;
+DECLARE string_value VARCHAR(5000) ARRAY;
+param_name[1] := N'FUNCTION';
+int_value[1] := NULL;
+double_value[1] := NULL;
+string_value[1] := N'HGBT';
+params = UNNEST(:param_name, :int_value, :double_value, :string_value);
+
+in_0 = SELECT * from :lt_in_0_unifiedinterface_classifier1_predict;
+in_1 = SELECT * from :lt_model_in_1_unifiedinterface_predict;
+CALL PAL_UNIFIED_CLASSIFICATION_PREDICT( :in_0, :in_1, :params, out_0, out_1);
+LT_PAL_UNIFIED_CLASSIF_PREDICT_RESULT_TBL = (SELECT * FROM :out_0);
+
+END

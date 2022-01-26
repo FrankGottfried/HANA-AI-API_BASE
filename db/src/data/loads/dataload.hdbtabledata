@@ -23,6 +23,30 @@
                     "delimiter": ","
                 }
             }
+        },
+        {
+            "target_table": "CUSTOMERCHURN_TRAINSAMPLE",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "customerchurn_trainsample.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
+        },
+        {
+            "target_table": "CUSTOMERCHURN_TESTSAMPLE",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "customerchurn_testsample.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
         }
     ]
 }
